@@ -41,5 +41,12 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
+Rayfield:Notify({
+   Title = "thanks for using the script",
+   Content = "lowk couldnt come up with a name so likee ;-;",
+   Duration = 5,
+   Image = 4483362458,
+})
+
 local Tab = Window:CreateTab("player", 4483362458) -- Title, Image
 Rayfield:LoadConfiguration()
