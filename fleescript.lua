@@ -3,7 +3,7 @@ debugX = true
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "Rayfield Example Window",
+   Name = "Flee The Fanny",
    Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
    LoadingTitle = "FleeTheFanny",
    LoadingSubtitle = "by toby",
@@ -42,3 +42,4 @@ local Window = Rayfield:CreateWindow({
 })
 
 local Tab = Window:CreateTab("player", 4483362458) -- Title, Image
+Rayfield:LoadConfiguration()
