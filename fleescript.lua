@@ -1,6 +1,18 @@
 debugX = true
 
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local KHLib = loadstring(game:HttpGet("https://pastebin.com/raw/BkRLnxZW"))():GetKSLib("v2.1.x")
+local PU = loadstring(game:HttpGet("https://pastebin.com/raw/xAZ4WQRS"))()
+local SLoc = game.CoreGui
+local HLoc = game.Workspace
+local Comp = 0
+local Beast = nil
+local lpos = nil
+local bnhide = false
+local clpos = false
+local bnhideelapse = 0
+local noelepse = 0
+local onsurvivorfarm = false
 
 local Window = Rayfield:CreateWindow({
    Name = "Flee The Fanny",
