@@ -63,6 +63,10 @@ SpeedHackEnabled:OnInputChanged(function()
 		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
 	end
 end)
+
+local Divider = Tab:CreateDivider()
+Divider:Set(false) -- Whether the divider's visibility is to be set to true or false.
+
 local Slider = Tab:CreateSlider({
    Name = "SpeedHack",
    Range = {0, 48},
