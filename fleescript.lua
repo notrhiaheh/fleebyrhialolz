@@ -34,7 +34,17 @@ local Tab = Window:CreateTab({
     ImageSource = "Material",
     ShowTitle = true -- This will determine whether the big header text in the tab will show
 })
-function IsThereChar(APlr) 	local plr = APlr or game.Players.LocalPlayer 	if plr.Character and plr.Character:FindFirstChild("Humanoid") then 		return true 	end 	return false end function TPPlayerSpawn() 	game.Players.LocalPlayer.Character:PivotTo(game.Workspace.LobbySpawnPad.CFrame * CFrame.new(0, 3, 0)) end
+function IsThereChar(APlr) 	
+    local plr = APlr or game.Players.LocalPlayer 	
+    if plr.Character and plr.Character:FindFirstChild("Humanoid") then
+        return true 	
+    end 	
+    return false 
+end 
+function TPPlayerSpawn() 	
+    
+game.Players.LocalPlayer.Character:PivotTo(game.Workspace.LobbySpawnPad.CFrame * CFrame.new(0, 3, 0)) 
+end
 
 local Toggle = Tab:CreateToggle({
     Name = "Speed Hacks",
