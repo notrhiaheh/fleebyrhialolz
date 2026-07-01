@@ -1,67 +1,41 @@
-local Luna = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/luna", true))()
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-local Window = Luna:CreateWindow({
-    Name = "FleeTheFanny", -- This Is Title Of Your Window
-    Subtitle = nil, -- A Gray Subtitle next To the main title.
-    LogoID = "82795327169782", -- The Asset ID of your logo. Set to nil if you do not have a logo for Luna to use.
-    LoadingEnabled = true, -- Whether to enable the loading animation. Set to false if you do not want the loading screen or have your own custom one.
-    LoadingTitle = "FleeTheFanny", -- Header for loading screen
-    LoadingSubtitle = "by MoreWorks", -- Subtitle for loading screen
+local Window = Rayfield:CreateWindow({
+   Name = "Flee The Fanny",
+   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+   LoadingTitle = "FleeTheFanny",
+   LoadingSubtitle = "by MoreStudios",
+   ShowText = "Rayfield", -- for mobile users to unhide Rayfield, change if you'd like
+   Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
 
-    ConfigSettings = {
-        RootFolder = nil, -- The Root Folder Is Only If You Have A Hub With Multiple Game Scripts and u may remove it. DO NOT ADD A SLASH
-        ConfigFolder = "Big Hub" -- The Name Of The Folder Where Luna Will Store Configs For This Script. DO NOT ADD A SLASH
-    },
+   ToggleUIKeybind = "K", -- The keybind to toggle the UI visibility (string like "K" or Enum.KeyCode)
 
-    KeySystem = false, -- As Of Beta 6, Luna Has officially Implemented A Key System!
-    KeySettings = {
-        Title = "Luna Example Key",
-        Subtitle = "Key System",
-        Note = "Best Key System Ever! Also, Please Use A HWID Keysystem like Pelican, Luarmor etc. that provide key strings based on your HWID since putting a simple string is very easy to bypass",
-        SaveInRoot = false, -- Enabling will save the key in your RootFolder (YOU MUST HAVE ONE BEFORE ENABLING THIS OPTION)
-        SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-        Key = {"Example Key"}, -- List of keys that will be accepted by the system, please use a system like Pelican or Luarmor that provide key strings based on your HWID since putting a simple string is very easy to bypass
-        SecondAction = {
-            Enabled = true, -- Set to false if you do not want a second action,
-            Type = "Link", -- Link / Discord.
-            Parameter = "" -- If Type is Discord, then put your invite link (DO NOT PUT DISCORD.GG/). Else, put the full link of your key system here.
-        }
-    }
+   DisableRayfieldPrompts = false,
+   DisableBuildWarnings = false, -- Prevents Rayfield from emitting warnings when the script has a version mismatch with the interface.
+
+   -- ScriptID = "sid_arx1cmp3yuri", -- Your Script ID from developer.sirius.menu — enables analytics, managed keys, and script hosting
+
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Big Hub"
+   },
+
+   Discord = {
+      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
+      Invite = "noinvitelink", -- The Discord invite code, do not include Discord.gg/. E.g. Discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the Discord every time they load it up
+   },
+
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided", -- Use this to tell the user how to get a key
+      FileName = "Key", -- It is recommended to use something unique, as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that the system will accept, can be RAW file links (pastebin, github, etc.) or simple strings ("hello", "key22")
+   }
 })
-local Tab = Window:CreateTab({
-    Name = "Player",
-    Icon = "view_in_ar",
-    ImageSource = "Material",
-    ShowTitle = true -- This will determine whether the big header text in the tab will show
-})
-function IsThereChar(APlr) 	
-    local plr = APlr or game.Players.LocalPlayer 	
-    if plr.Character and plr.Character:FindFirstChild("Humanoid") then
-        return true 	
-    end 	
-    return false 
-end 
-function TPPlayerSpawn() 	
-    
-game.Players.LocalPlayer.Character:PivotTo(game.Workspace.LobbySpawnPad.CFrame * CFrame.new(0, 3, 0)) 
-end
-
-local Toggle = Tab:CreateToggle({
-    Name = "Speed Hacks",
-    Description = Enable Speed Hacks,
-    CurrentValue = false,
-    Callback = function(Value)
-        -- The function that takes place when the toggle is switched
-        -- The variable (Value) is a boolean on whether the toggle is true or false
-    end
-}, "Toggle") -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-
-local Toggle = Tab:CreateToggle({
-    Name = "Speed",
-    Description = nil,
-    CurrentValue = 16,
-    Callback = function(Value)
-        -- The function that takes place when the toggle is switched
-        -- The variable (Value) is a boolean on whether the toggle is true or false
-    end
-}, "Toggle") -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+Rayfield:LoadConfiguration()
