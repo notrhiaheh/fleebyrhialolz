@@ -35,3 +35,23 @@ local Tab = Window:CreateTab({
     ShowTitle = true -- This will determine whether the big header text in the tab will show
 })
 function IsThereChar(APlr) 	local plr = APlr or game.Players.LocalPlayer 	if plr.Character and plr.Character:FindFirstChild("Humanoid") then 		return true 	end 	return false end function TPPlayerSpawn() 	game.Players.LocalPlayer.Character:PivotTo(game.Workspace.LobbySpawnPad.CFrame * CFrame.new(0, 3, 0)) end
+
+local Toggle = Tab:CreateToggle({
+    Name = "Speed Hacks",
+    Description = Enable Speed Hacks,
+    CurrentValue = false,
+    Callback = function(Value)
+        -- The function that takes place when the toggle is switched
+        -- The variable (Value) is a boolean on whether the toggle is true or false
+    end
+}, "Toggle") -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+
+local Toggle = Tab:CreateToggle({
+    Name = "Speed",
+    Description = nil,
+    CurrentValue = 16,
+    Callback = function(Value)
+        -- The function that takes place when the toggle is switched
+        -- The variable (Value) is a boolean on whether the toggle is true or false
+    end
+}, "Toggle") -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
